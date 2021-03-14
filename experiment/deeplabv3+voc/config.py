@@ -10,11 +10,11 @@ import time
 
 config_dict = {
 		'EXP_NAME': 'deeplabv3+voc',
-		'GPUS': 2,
+		'GPUS': 1,
 
 		'DATA_NAME': 'VOCDataset',
 		'DATA_YEAR': 2012,
-		'DATA_AUG': True,
+		'DATA_AUG': False,
 		'DATA_WORKERS': 2,
 		'DATA_MEAN': [0.485, 0.456, 0.406],
 		'DATA_STD': [0.229, 0.224, 0.225],
@@ -29,8 +29,8 @@ config_dict = {
 		'DATA_PSEUDO_GT': False,
 		
 		'MODEL_NAME': 'deeplabv3plus',
-		'MODEL_BACKBONE': 'resnet101',
-		'MODEL_BACKBONE_PRETRAIN': True,
+		'MODEL_BACKBONE': 'xception',
+		'MODEL_BACKBONE_PRETRAIN': False,
 		'MODEL_BACKBONE_DILATED': True,
 		'MODEL_BACKBONE_MULTIGRID': False,
 		'MODEL_BACKBONE_DEEPBASE': True,
@@ -46,7 +46,7 @@ config_dict = {
 		'TRAIN_WEIGHT_DECAY': 4e-5,
 		'TRAIN_BN_MOM': 0.0003,
 		'TRAIN_POWER': 0.9,
-		'TRAIN_BATCHES': 16,
+		'TRAIN_BATCHES': 4,
 		'TRAIN_SHUFFLE': True,
 		'TRAIN_MINEPOCH': 0,
 		'TRAIN_ITERATION': 30000,
@@ -58,7 +58,7 @@ config_dict = {
 		'TEST_BATCHES': 1,		
 }
 
-config_dict['ROOT_DIR'] = os.path.abspath(os.path.join(os.path.dirname("__file__"),'..','..'))
+config_dict['ROOT_DIR'] = os.path.abspath("/content")
 config_dict['MODEL_SAVE_DIR'] = os.path.join(config_dict['ROOT_DIR'],'model',config_dict['EXP_NAME'])
 config_dict['TRAIN_CKPT'] = None
 config_dict['LOG_DIR'] = os.path.join(config_dict['ROOT_DIR'],'log',config_dict['EXP_NAME'])
