@@ -30,6 +30,7 @@ def conv3x3(in_planes, out_planes, stride=1):
 
 class BasicBlock(nn.Module):
     """ResNet BasicBlock
+    dilation一般都是1 是config中定义的
     """
     expansion = 1
     def __init__(self, inplanes, planes, stride=1, dilation=1, downsample=None, previous_dilation=1,
